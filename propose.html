@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Propose Day 💍</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="propose-bg fade" style="
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+  position:relative;
+  overflow:hidden;
+">
+
+<!-- 💍 Silver Ring Background -->
+<div class="ring-bg"></div>
+
+<!-- 🌫️ Dark overlay for realism -->
+<div class="ring-overlay"></div>
+
+
+
+<!-- 💍 Proposal Card -->
+<div class="proposal-card">
+
+  <h1 class="heartbeat glow">💍 Garima</h1>
+
+  <p class="proposal-text">
+    From smiles to moments,<br>
+    somehow you became my favourite part of every day…
+  </p>
+
+  <h2 class="question">Will you be mine? 💖</h2>
+
+  <div class="buttons">
+    <button class="yes-btn" onclick="yesClicked()">Yes ❤️</button>
+    <button class="no-btn" id="no">No 🙈</button>
+  </div>
+
+</div>
+
+<script>
+  function yesClicked() {
+    alert("You just made my heart smile ❤️💍");
+  }
+
+  const noBtn = document.getElementById("no");
+  noBtn.addEventListener("mouseover", () => {
+    noBtn.style.position = "absolute";
+    noBtn.style.left = Math.random() * 70 + "%";
+    noBtn.style.top = Math.random() * 70 + "%";
+  });
+</script>
+
+</body>
+</html>

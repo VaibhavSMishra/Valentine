@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Garima 💖</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 💓 Full Screen ECG Background -->
+<div class="ecg-bg">
+  <svg viewBox="0 0 1200 200" preserveAspectRatio="none">
+    <polyline
+      points="
+      0,100
+      50,100 80,100
+      90,40 100,160 110,100
+      160,100
+      170,70 180,130 190,100
+      240,100
+      250,40 260,160 270,100
+      320,100
+      330,70 340,130 350,100
+      400,100
+      410,40 420,160 430,100
+      480,100
+      490,70 500,130 510,100
+      560,100
+      570,40 580,160 590,100
+      640,100
+      650,70 660,130 670,100
+      720,100
+      730,40 740,160 750,100
+      800,100
+      810,70 820,130 830,100
+      880,100
+      890,40 900,160 910,100
+      960,100
+      970,70 980,130 990,100
+      1200,100
+      "
+    />
+  </svg>
+</div>
+
+<!-- 🌙 Ambience Overlay -->
+<div class="ambience"></div>
+
+<!-- 💖 Floating Background Hearts -->
+<div class="bg-hearts">💖 💕 💘 💗 💓</div>
+
+<!-- 🎵 Background Music (plays on interaction) -->
+<audio id="bg-music" loop>
+  <source src="music/soft.mp3" type="audio/mpeg">
+</audio>
+
+<header class="header" onclick="playMusic()">
+  <h1 class="glow">💖 For Beloved Princess 👑<br> Garima 💖</h1>
+  <p class="subtitle">
+    A little journey of feelings, made just for you ✨
+  </p>
+</header>
+
+<div class="tabs">
+  <a href="rose.html" class="btn rose" data-day="7">🌹 Rose Day</a>
+  <a href="propose.html" class="btn propose" data-day="8">💍 Propose Day</a>
+  <a href="chocolate.html" class="btn chocolate" data-day="9">🍫 Chocolate Day</a>
+
+  <a href="teddy.html" class="btn teddy" data-day="10">🧸 Teddy Day</a>
+  <a href="promise.html" class="btn promise" data-day="11">🤝 Promise Day</a>
+
+  <a href="hug.html" class="btn hug" data-day="12">🤗 Hug Day</a>
+  
+  <a href="valentine.html" class="btn valentine center" data-day="14">❤️ Valentine</a>
+</div>
+
+<!-- 💓 Heart Rate -->
+<!--<div class="heart-rate">
+  <svg viewBox="0 0 300 60" class="ecg">
+    <polyline
+      points="0,30 40,30 50,10 60,50 70,30 110,30 120,20 130,40 140,30 300,30"
+    />
+  </svg>
+</div>-->
+
+
+<footer class="footer">
+  <p>Made with 💗 for Garima</p>
+</footer>
+
+<script>
+  const today = new Date();
+  const currentDay = today.getDate();
+  const currentMonth = today.getMonth(); // Feb = 1
+
+  document.querySelectorAll(".tabs a").forEach(btn => {
+    const unlockDay = parseInt(btn.dataset.day);
+
+    // Lock if not February OR date not reached
+    if (currentMonth !== 1 || currentDay < unlockDay) {
+      btn.classList.add("locked");
+      btn.removeAttribute("href");
+      btn.innerHTML += " 🔒";
+    }
+  });
+</script>
+
+</body>
+</html>

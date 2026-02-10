@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Valentine ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="val-bg fade" style="
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+  color:#fff;
+">
+
+<!-- ❤️ Background ambience -->
+<div class="val-hearts">❤️ 💖 💕 💘 💗</div>
+<div class="val-overlay"></div>
+
+<!-- ❤️ Main Card -->
+<div class="val-card">
+
+  <h1 class="glow val-name">❤️ Garima</h1>
+
+  <p class="val-line">Forever isn’t long enough…</p>
+
+  <h2 class="val-question">
+    Will you be my Valentine? 💍
+  </h2>
+
+  <!-- Buttons -->
+  <div class="val-buttons">
+    <button class="val-yes" onclick="yesClicked()">Yes ❤️</button>
+    <button class="val-no" onclick="handleNo()">No 🙈</button>
+  </div>
+
+  <!-- 💝 Offer text -->
+  <p class="val-offer" id="offerText"></p>
+
+  <p class="val-footer">
+    — a moment from my heart to yours
+  </p>
+
+</div>
+
+<script>
+  let noCount = 0;
+
+  const offers = [
+    "Okay… what about a ☕ café date together?",
+    "Hmm… then maybe 🛍️ shopping, just you and me?",
+    "Alright… how about a 🍽️ dinner treat?",
+    "Still no? 😌 Then let’s plan a ✈️ small trip?",
+    "One more try… 🎁 a surprise gift, no questions asked 💖"
+  ];
+
+  function yesClicked() {
+    alert("You just made my world brighter 💖, I dont know I am fit for you not and I am not perfect but i will change myself as you say and don't worry, you will never feel cheated with me.");
+  }
+
+  function handleNo() {
+    const offerText = document.getElementById("offerText");
+
+    // 🔁 LOOP FOREVER
+    const index = noCount % offers.length;
+    offerText.innerText = offers[index];
+    offerText.style.opacity = 1;
+
+    noCount++;
+  }
+</script>
+
+</body>
+</html>

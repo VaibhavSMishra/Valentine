@@ -1,0 +1,942 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ff4d6d, #ff9a9e);
+  font-family: Arial, sans-serif;
+  text-align: center;
+  color: white;
+  padding: 40px;
+}
+
+/* Heading */
+.glow {
+  font-size: 2.8rem;
+  text-shadow: 0 0 10px #fff, 0 0 25px pink;
+}
+
+.subtitle {
+  margin-bottom: 35px;
+  font-size: 1.1rem;
+}
+
+/* Layout */
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
+  max-width: 720px;
+  margin: auto;
+}
+
+/* Base link-button */
+.btn {
+  display: block;
+  padding: 16px;
+  font-size: 1.1rem;
+  border-radius: 16px;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* 🌹 Rose Day – pulsing glow */
+.rose {
+  background: #ff4d6d;
+  animation: pulse 2s infinite;
+}
+
+/* 💍 Propose Day – heartbeat */
+.propose {
+  background: #b5179e;
+  animation: heartbeat 1.3s infinite;
+}
+
+/* 🍫 Chocolate Day – float on hover */
+.chocolate {
+  background: #6f1d1b;
+}
+.chocolate:hover {
+  transform: translateY(-8px);
+}
+
+/* 🧸 Teddy Day – bounce */
+.teddy {
+  background: #f7b7c9;
+  color: #000;
+}
+.teddy:hover {
+  animation: bounce 0.6s;
+}
+
+/* 🤝 Promise Day – blue glow */
+.promise {
+  background: #4361ee;
+}
+.promise:hover {
+  box-shadow: 0 0 18px #4cc9f0;
+}
+
+/* 🤗 Hug Day – zoom */
+.hug {
+  background: #ff758f;
+}
+.hug:hover {
+  transform: scale(1.12);
+}
+
+/* ❤️ Valentine – strong red glow */
+.valentine {
+  background: #000;
+  box-shadow: 0 0 18px red;
+}
+.valentine:hover {
+  box-shadow: 0 0 35px red;
+  transform: scale(1.15);
+}
+
+/* Animations */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 pink; }
+  50% { box-shadow: 0 0 20px pink; }
+  100% { box-shadow: 0 0 0 pink; }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* Header */
+.header {
+  margin-bottom: 40px;
+  animation: fadeDown 1.2s ease;
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Floating background hearts */
+.bg-hearts {
+  position: fixed;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  opacity: 0.15;
+  animation: floatBg 15s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes floatBg {
+  from { transform: translateY(0); }
+  to { transform: translateY(120vh); }
+}
+
+/* Card-style buttons */
+.btn {
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* Center Valentine emphasis */
+.center {
+  border: 2px solid rgba(255,255,255,0.6);
+  animation: heartbeat 1.2s infinite;
+}
+
+/* Footer */
+.footer {
+  margin-top: 45px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+/* 🌙 Ambience overlay */
+.ambience {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 60%),
+    linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.4));
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Tap note */
+.tap-note {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-top: 10px;
+}
+
+/* 💓 Heart rate line */
+.heart-rate {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  height: 50px;
+  overflow: hidden;
+}
+
+.heart-rate span {
+  display: block;
+  width: 400px;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 10%,
+    #ff4d6d 20%,
+    transparent 30%,
+    #ff4d6d 40%,
+    transparent 50%,
+    #ff4d6d 60%,
+    transparent 70%
+  );
+  animation: heartbeat-line 1.6s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes heartbeat-line {
+  from { transform: translateX(-150px); }
+  to { transform: translateX(150px); }
+}
+
+/* 💓 Heart Rate (ECG Style) */
+.heart-rate {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 60px;
+  opacity: 0.85;
+}
+
+.ecg {
+  width: 100%;
+  height: 100%;
+}
+
+.ecg polyline {
+  fill: none;
+  stroke: #1f3804;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: ecg-move 1.6s linear infinite;
+}
+
+/* Heartbeat animation */
+@keyframes ecg-move {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* 💓 Full Screen ECG Background */
+.ecg-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: radial-gradient(circle at center, #1a001a, #000);
+  overflow: hidden;
+}
+
+.ecg-bg svg {
+  width: 200%;
+  height: 100%;
+}
+
+.ecg-bg polyline {
+  fill: none;
+  stroke: #ff4d6d;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: ecg-scroll 3s linear infinite;
+
+  opacity: 0.35;
+  filter: drop-shadow(0 0 8px #ff4d6d);
+}
+
+/* ECG movement */
+@keyframes ecg-scroll {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+/* 🔒 Locked buttons */
+.locked {
+  opacity: 0.4;
+  filter: grayscale(1);
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: none !important;
+}
+
+/* 💍 Silver Ring Background */
+.ring-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    url("images/silver-ring.jpg") center/cover no-repeat;
+  filter: blur(6px) brightness(0.9);
+  transform: scale(1.1);
+  animation: slowZoom 18s ease-in-out infinite alternate;
+  z-index: -3;
+}
+
+/* Dark cinematic overlay */
+.ring-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(0,0,0,0.2),
+    rgba(0,0,0,0.65)
+  );
+  z-index: -2;
+}
+
+/* Proposal card polish */
+.proposal-card {
+  background: rgba(0,0,0,0.55);
+  padding: 40px 45px;
+  border-radius: 22px;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+}
+
+.proposal-text {
+  margin: 18px 0;
+  line-height: 1.6;
+  font-size: 1.05rem;
+  opacity: 0.9;
+}
+
+.question {
+  margin: 25px 0 20px;
+  font-size: 1.4rem;
+}
+
+/* Slow cinematic zoom */
+@keyframes slowZoom {
+  from { transform: scale(1.05); }
+  to   { transform: scale(1.15); }
+}
+
+/* 🍫 Chocolate base background */
+.choco-bg {
+  background: radial-gradient(circle at top, #5a2e1b, #2b140a);
+  color: #fff;
+}
+
+/* 🍫 Dripping chocolate effect */
+.choco-melt {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 35%;
+  background: linear-gradient(#3b1d12, #2b140a);
+  border-bottom-left-radius: 60% 30%;
+  border-bottom-right-radius: 60% 30%;
+  animation: melt 6s ease-in-out infinite alternate;
+  opacity: 0.8;
+}
+
+@keyframes melt {
+  from { height: 30%; }
+  to   { height: 38%; }
+}
+
+/* 🍫 Warm steam */
+.choco-steam::before,
+.choco-steam::after {
+  content: "";
+  position: absolute;
+  bottom: 20%;
+  left: 40%;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(255,255,255,0.15), transparent);
+  filter: blur(30px);
+  animation: steam 5s ease-in-out infinite;
+}
+
+.choco-steam::after {
+  left: 55%;
+  animation-delay: 2.5s;
+}
+
+@keyframes steam {
+  0%   { transform: translateY(20px); opacity: 0; }
+  50%  { opacity: 0.6; }
+  100% { transform: translateY(-40px); opacity: 0; }
+}
+
+/* 🍫 Chocolate card */
+.choco-card {
+  background: rgba(0,0,0,0.55);
+  padding: 42px 46px;
+  border-radius: 22px;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+  z-index: 1;
+}
+
+/* 🍫 Soft glow pulse */
+.glow-soft {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%   { box-shadow: 0 0 20px rgba(255,140,90,0.3); }
+  50%  { box-shadow: 0 0 35px rgba(255,140,90,0.55); }
+  100% { box-shadow: 0 0 20px rgba(255,140,90,0.3); }
+}
+
+/* Extra line */
+.choco-line {
+  margin-top: 18px;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* 🍫🍬 Falling chocolate & candy effect */
+.choco-rain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.choco-rain span {
+  position: absolute;
+  top: -10%;
+  font-size: 2.2rem;
+  opacity: 0.35;
+  animation: chocoDrop linear infinite;
+}
+
+/* Different positions & speeds */
+.choco-rain span:nth-child(1) { left: 10%; animation-duration: 9s; }
+.choco-rain span:nth-child(2) { left: 20%; animation-duration: 11s; }
+.choco-rain span:nth-child(3) { left: 30%; animation-duration: 8s; }
+.choco-rain span:nth-child(4) { left: 45%; animation-duration: 12s; }
+.choco-rain span:nth-child(5) { left: 55%; animation-duration: 10s; }
+.choco-rain span:nth-child(6) { left: 65%; animation-duration: 9s; }
+.choco-rain span:nth-child(7) { left: 78%; animation-duration: 13s; }
+.choco-rain span:nth-child(8) { left: 90%; animation-duration: 11s; }
+
+@keyframes chocoDrop {
+  from {
+    transform: translateY(0) rotate(0deg);
+  }
+  to {
+    transform: translateY(120vh) rotate(360deg);
+  }
+}
+
+/* Ensure card stays above rain */
+.choco-card {
+  position: relative;
+  z-index: 1;
+}
+
+/* Chocolate background */
+.choco-bg {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #3e1f14, #6b3e26);
+  overflow: hidden;
+  position: relative;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+/* Center card */
+.choco-card {
+  position: relative;
+  z-index: 2;
+  background: rgba(0,0,0,0.45);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 400px;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Falling chocolates & candies */
+.choco-rain {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.choco-rain span {
+  position: absolute;
+  top: -10%;
+  font-size: 2.5rem;
+  animation: fall linear infinite;
+  opacity: 0.6;
+}
+
+/* Different positions & speeds */
+.choco-rain span:nth-child(1) { left: 10%; animation-duration: 6s; }
+.choco-rain span:nth-child(2) { left: 25%; animation-duration: 8s; }
+.choco-rain span:nth-child(3) { left: 40%; animation-duration: 7s; }
+.choco-rain span:nth-child(4) { left: 55%; animation-duration: 9s; }
+.choco-rain span:nth-child(5) { left: 65%; animation-duration: 6.5s; }
+.choco-rain span:nth-child(6) { left: 75%; animation-duration: 8.5s; }
+.choco-rain span:nth-child(7) { left: 85%; animation-duration: 7.5s; }
+.choco-rain span:nth-child(8) { left: 95%; animation-duration: 9.5s; }
+
+@keyframes fall {
+  from {
+    transform: translateY(0) rotate(0deg);
+  }
+  to {
+    transform: translateY(120vh) rotate(360deg);
+  }
+}
+/* 🤝 Promise Day Background */
+.promise-bg {
+  background: radial-gradient(circle at top, #1e3c72, #0f2027);
+  color: #fff;
+  font-family: 'Georgia', serif;
+}
+
+/* Soft ambient glow */
+.promise-ambience {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255,255,255,0.08),
+    rgba(0,0,0,0.6)
+  );
+  z-index: -1;
+}
+
+/* Promise card */
+.promise-card {
+  background: rgba(0,0,0,0.55);
+  padding: 45px 50px;
+  border-radius: 22px;
+  max-width: 460px;
+  text-align: center;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+}
+
+/* Handwritten text */
+.handwritten {
+  font-family: 'Segoe Script', 'Brush Script MT', cursive;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  margin: 30px 0;
+  opacity: 0.95;
+}
+
+/* Gentle glow */
+.glow-soft {
+  animation: glowPulseSoft 3s ease-in-out infinite;
+}
+
+@keyframes glowPulseSoft {
+  0%   { text-shadow: 0 0 8px rgba(255,255,255,0.25); }
+  50%  { text-shadow: 0 0 16px rgba(255,255,255,0.45); }
+  100% { text-shadow: 0 0 8px rgba(255,255,255,0.25); }
+}
+
+/* Decorative line */
+.promise-line {
+  width: 60px;
+  height: 2px;
+  background: rgba(255,255,255,0.4);
+  margin: 18px auto;
+}
+
+/* Footer text */
+.promise-footer {
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+
+/* Allow scrolling */
+.promise-wrapper {
+  min-height: 100vh;
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Ensure ambience stays in background */
+.promise-ambience {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+/* 🧸 Teddy Day base background */
+.teddy-bg {
+  background: linear-gradient(135deg, #f7b7c9, #fbd3e9);
+  color: #000;
+  font-family: Arial, sans-serif;
+}
+
+/* Teddy background animation container */
+.teddy-bg-anim {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Individual teddy */
+.teddy-bg-anim span {
+  position: absolute;
+  font-size: 3.5rem;
+  opacity: 0.35;
+  animation: teddyBounce 3s ease-in-out infinite;
+}
+
+/* Different positions & timings */
+.teddy-bg-anim span:nth-child(1) { left: 10%; bottom: 10%; animation-duration: 2.8s; }
+.teddy-bg-anim span:nth-child(2) { left: 25%; bottom: 20%; animation-duration: 3.2s; }
+.teddy-bg-anim span:nth-child(3) { left: 45%; bottom: 15%; animation-duration: 2.6s; }
+.teddy-bg-anim span:nth-child(4) { left: 60%; bottom: 25%; animation-duration: 3.4s; }
+.teddy-bg-anim span:nth-child(5) { left: 75%; bottom: 12%; animation-duration: 2.9s; }
+.teddy-bg-anim span:nth-child(6) { left: 90%; bottom: 18%; animation-duration: 3.1s; }
+
+/* Bounce animation */
+@keyframes teddyBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-25px); }
+}
+
+/* Foreground content */
+.teddy-content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Text polish */
+.teddy-text {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* Teddy overlay */
+.teddy-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.2);
+  z-index: 0;
+}
+
+/* Foreground content */
+.teddy-content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #000;
+}
+
+/* Optional soft glow */
+.teddy-content h1 {
+  text-shadow: 0 0 10px rgba(255,182,193,0.8);
+}
+.teddy-content {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff; /* FORCE WHITE */
+}
+
+.teddy-content p {
+  opacity: 0.95;
+}
+
+.teddy-content h1 {
+  text-shadow: 0 0 12px rgba(255,255,255,0.6);
+}
+.teddy-content {
+  text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+}
+/* ❤️ Valentine background */
+.val-bg {
+  background: radial-gradient(circle at center, #200016, #000);
+  font-family: Arial, sans-serif;
+}
+
+/* Floating hearts ambience */
+.val-hearts {
+  position: absolute;
+  top: -10%;
+  width: 100%;
+  text-align: center;
+  font-size: 2.2rem;
+  opacity: 0.2;
+  animation: valFloat 16s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes valFloat {
+  from { transform: translateY(0); }
+  to   { transform: translateY(120vh); }
+}
+
+/* Dark overlay */
+.val-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255,255,255,0.05),
+    rgba(0,0,0,0.7)
+  );
+}
+
+/* Valentine card */
+.val-card {
+  position: relative;
+  z-index: 1;
+  background: rgba(0,0,0,0.55);
+  padding: 50px 55px;
+  border-radius: 26px;
+  max-width: 460px;
+  text-align: center;
+  box-shadow: 0 35px 70px rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+}
+
+/* Name highlight */
+.val-name {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+/* Lines */
+.val-line {
+  font-size: 1.1rem;
+  margin: 15px 0;
+  opacity: 0.85;
+}
+
+.val-question {
+  margin: 25px 0 30px;
+  font-size: 1.6rem;
+}
+
+/* Yes button */
+.val-yes {
+  background: linear-gradient(135deg, #ff4d6d, #ff758f);
+  border: none;
+  padding: 14px 40px;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(255,77,109,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.val-yes:hover {
+  transform: scale(1.08);
+  box-shadow: 0 18px 45px rgba(255,77,109,0.7);
+}
+
+/* Footer */
+.val-footer {
+  margin-top: 25px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+/* Button container */
+.val-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* No button style */
+.val-no {
+  background: transparent;
+  border: 2px solid #ff758f;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.val-no:hover {
+  background: rgba(255,117,143,0.15);
+}
+/* Offer section */
+.val-offers {
+  display: none;
+  margin-top: 25px;
+  background: rgba(255,255,255,0.08);
+  padding: 20px;
+  border-radius: 18px;
+  animation: fadeIn 0.5s ease;
+}
+
+.offer-title {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
+.val-offers ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 15px;
+}
+
+.val-offers li {
+  margin: 6px 0;
+  font-size: 0.95rem;
+}
+
+/* Smaller Yes button */
+.val-yes.small {
+  padding: 10px 26px;
+  font-size: 1rem;
+}
+/* Sequential offer text */
+.val-offer {
+  margin-top: 22px;
+  font-size: 1rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  color: #ffd6e0;
+}
+.val-offer {
+  margin-top: 22px;
+  font-size: 1rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  color: #ffd6e0;
+}
+/* 🤗 Hug Day background */
+.hug-bg {
+  background: radial-gradient(circle at center, #ff8fab, #ff4d6d);
+  font-family: Arial, sans-serif;
+}
+
+/* Soft dark overlay */
+.hug-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255,255,255,0.15),
+    rgba(0,0,0,0.45)
+  );
+}
+
+/* Embrace circle */
+.hug-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 260px;
+  height: 260px;
+  transform: translate(-50%, -55%);
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: hugBreath 4s ease-in-out infinite;
+}
+
+/* Inner hug */
+.hug-inner {
+  font-size: 5rem;
+  animation: hugPulse 2.5s ease-in-out infinite;
+}
+
+/* Breathing motion */
+@keyframes hugBreath {
+  0%,100% { transform: translate(-50%, -55%) scale(1); }
+  50% { transform: translate(-50%, -55%) scale(1.08); }
+}
+
+@keyframes hugPulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+}
+
+/* Text block */
+.hug-text {
+  position: absolute;
+  bottom: 14%;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+}
+
+.hug-text h1 {
+  font-size: 2.3rem;
+  margin-bottom: 10px;
+}
+
+.hug-text p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.hug-sign {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
